@@ -1,0 +1,138 @@
+/* Card Component Styles */
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  animation: fadeIn var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.card.card-clickable {
+  cursor: pointer;
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  height: 60px;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-light-gray);
+}
+
+.card-title-section {
+  flex: 1;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 16px;
+  color: var(--color-dark);
+  font-weight: var(--font-weight-bold);
+}
+
+.card-subtitle {
+  margin: var(--spacing-xs) 0 0;
+  color: var(--color-gray);
+  font-size: 12px;
+}
+
+.card-value {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-top: var(--spacing-md);
+}
+
+.card-content {
+  margin-top: var(--spacing-md);
+}
+
+/* Card Variants */
+.card-default {
+  background: var(--color-white);
+}
+
+.card-success {
+  border-left: 4px solid var(--color-success);
+  background: linear-gradient(135deg, rgba(46, 204, 113, 0.05) 0%, transparent 100%);
+}
+
+.card-success .card-icon {
+  background-color: rgba(46, 204, 113, 0.1);
+}
+
+.card-success .card-value {
+  color: var(--color-success);
+}
+
+.card-warning {
+  border-left: 4px solid var(--color-warning);
+  background: linear-gradient(135deg, rgba(243, 156, 18, 0.05) 0%, transparent 100%);
+}
+
+.card-warning .card-icon {
+  background-color: rgba(243, 156, 18, 0.1);
+}
+
+.card-warning .card-value {
+  color: var(--color-warning);
+}
+
+.card-danger {
+  border-left: 4px solid var(--color-danger);
+  background: linear-gradient(135deg, rgba(231, 76, 60, 0.05) 0%, transparent 100%);
+}
+
+.card-danger .card-icon {
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.card-danger .card-value {
+  color: var(--color-danger);
+}
+
+.card-info {
+  border-left: 4px solid var(--color-info);
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.05) 0%, transparent 100%);
+}
+
+.card-info .card-icon {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+.card-info .card-value {
+  color: var(--color-info);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    padding: var(--spacing-md);
+  }
+
+  .card-icon {
+    min-width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+
+  .card-value {
+    font-size: 1.5rem;
+  }
+}

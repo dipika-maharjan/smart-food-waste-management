@@ -1,0 +1,239 @@
+/* Dashboard Page Styles */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-light-gray);
+}
+
+.dashboard {
+  flex: 1;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xxl);
+  flex-wrap: wrap;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  color: var(--color-dark);
+}
+
+.dashboard-subtitle {
+  color: var(--color-gray);
+  margin-top: var(--spacing-sm);
+  font-size: 14px;
+}
+
+.dashboard-header a {
+  text-decoration: none;
+}
+
+/* Dashboard Stats Section */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xxl);
+}
+
+.dashboard-stats .card {
+  text-align: center;
+}
+
+/* Quick Links Section */
+.dashboard-quick-links {
+  margin-bottom: var(--spacing-xxl);
+}
+
+.dashboard-quick-links h2 {
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-dark);
+}
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.quick-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.quick-link:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.link-icon {
+  font-size: 2.5rem;
+  min-width: 70px;
+  text-align: center;
+}
+
+.link-content {
+  flex: 1;
+}
+
+.link-content h3 {
+  margin: 0;
+  font-size: 15px;
+  color: var(--color-dark);
+  font-weight: var(--font-weight-semibold);
+}
+
+.link-content p {
+  margin: var(--spacing-xs) 0 0;
+  color: var(--color-gray);
+  font-size: var(--font-size-sm);
+}
+
+/* Alert Banner */
+.dashboard-alert-banner {
+  background: linear-gradient(135deg, rgba(243, 156, 18, 0.1) 0%, transparent 100%);
+  border: 2px solid var(--color-warning);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  animation: slideIn var(--transition-base);
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.banner-icon {
+  font-size: 2rem;
+  min-width: 50px;
+  text-align: center;
+}
+
+.banner-content h3 {
+  margin: 0 0 var(--spacing-xs);
+  color: var(--color-warning);
+}
+
+.banner-content p {
+  margin: 0;
+  color: var(--color-dark-gray);
+}
+
+.banner-content a {
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .dashboard {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .dashboard-stats {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .links-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: var(--spacing-md) var(--spacing-md);
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .dashboard-header h1 {
+    font-size: 20px;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .links-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .banner-content {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .quick-link {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+  }
+
+  .link-icon {
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+
+  .banner-content a {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  .dashboard-header h1 {
+    font-size: 18px;
+  }
+
+  .dashboard-subtitle {
+    font-size: 12px;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-link {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+}
+
