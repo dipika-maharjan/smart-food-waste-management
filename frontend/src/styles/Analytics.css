@@ -1,0 +1,332 @@
+/* Analytics Page Styles */
+.analytics-container {
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.analytics-page {
+  padding: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.analytics-header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.analytics-subtitle {
+  color: #6c757d;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Summary Cards */
+.summary-section {
+  margin-bottom: 2.5rem;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-left: 4px solid #3498db;
+  transition: transform 0.3s;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+}
+
+.summary-card.available {
+  border-left-color: #2ecc71;
+}
+
+.summary-card.used {
+  border-left-color: #3498db;
+}
+
+.summary-card.donated {
+  border-left-color: #9b59b6;
+}
+
+.summary-card.wasted {
+  border-left-color: #e74c3c;
+}
+
+.summary-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-card .number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #3498db;
+  margin-bottom: 0.5rem;
+}
+
+.summary-card.available .number {
+  color: #2ecc71;
+}
+
+.summary-card.used .number {
+  color: #3498db;
+}
+
+.summary-card.donated .number {
+  color: #9b59b6;
+}
+
+.summary-card.wasted .number {
+  color: #e74c3c;
+}
+
+.summary-card .percentage {
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+/* Expiry Status */
+.expiry-section {
+  margin-bottom: 3rem;
+}
+
+.expiry-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.expiry-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.expiry-card.fresh {
+  background: linear-gradient(135deg, rgba(46, 204, 113, 0.1) 0%, rgba(39, 174, 96, 0.1) 100%);
+  border-left: 4px solid #2ecc71;
+}
+
+.expiry-card.near-expiry {
+  background: linear-gradient(135deg, rgba(243, 156, 18, 0.1) 0%, rgba(230, 126, 34, 0.1) 100%);
+  border-left: 4px solid #f39c12;
+}
+
+.expiry-card.expired {
+  background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(192, 57, 43, 0.1) 100%);
+  border-left: 4px solid #e74c3c;
+}
+
+.expiry-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.expiry-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: #2c3e50;
+}
+
+.expiry-card .count {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Waste Breakdown */
+.waste-section {
+  margin-bottom: 3rem;
+}
+
+.category-list,
+.reason-list {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+}
+
+.category-item,
+.reason-item {
+  margin-bottom: 1.5rem;
+}
+
+.category-item:last-child,
+.reason-item:last-child {
+  margin-bottom: 0;
+}
+
+.category-header,
+.reason-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.category-name,
+.reason-name {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.category-count,
+.reason-count {
+  color: #6c757d;
+}
+
+.category-bar,
+.reason-bar {
+  height: 30px;
+  background: #ecf0f1;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.category-bar-fill,
+.reason-bar-fill {
+  height: 100%;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  border-radius: 15px;
+  transition: width 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  min-width: 40px;
+}
+
+/* Insights */
+.insights-section {
+  margin-bottom: 2rem;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.insight-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-left: 4px solid #3498db;
+}
+
+.insight-card.danger {
+  border-left-color: #e74c3c;
+  background: linear-gradient(135deg, rgba(231, 76, 60, 0.05) 0%, rgba(192, 57, 43, 0.05) 100%);
+}
+
+.insight-card.success {
+  border-left-color: #2ecc71;
+  background: linear-gradient(135deg, rgba(46, 204, 113, 0.05) 0%, rgba(39, 174, 96, 0.05) 100%);
+}
+
+.insight-card.warning {
+  border-left-color: #f39c12;
+  background: linear-gradient(135deg, rgba(243, 156, 18, 0.05) 0%, rgba(230, 126, 34, 0.05) 100%);
+}
+
+.insight-card.info {
+  border-left-color: #3498db;
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.05) 0%, rgba(41, 128, 185, 0.05) 100%);
+}
+
+.insight-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.insight-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.insight-card p {
+  margin: 0;
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+/* No Data State */
+.no-data {
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  text-align: center;
+  color: #6c757d;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.no-data-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  color: #6c757d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .analytics-page {
+    padding: 1rem;
+  }
+  
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .expiry-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .summary-card .number,
+  .expiry-card .count {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+  }
+}
