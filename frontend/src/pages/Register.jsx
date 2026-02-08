@@ -54,7 +54,7 @@ function Register() {
               value={formData.name}
               onChange={handleChange}
               required
-              placeholder="John Doe"
+              placeholder="Your name"
             />
           </div>
 
