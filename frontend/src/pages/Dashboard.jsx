@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getInventory } from "../services/foodService";
-import Navbar from "../components/Navbar";
 import "../styles/Dashboard.css";
 
 const Dashboard = () => {
@@ -56,18 +55,16 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="dashboard-container">
-      <Navbar />
-      <main className="dashboard">
-        <div className="dashboard-header">
-          <div>
-            <h1>📊 Dashboard</h1>
-            <p className="dashboard-subtitle">Overview of your food inventory</p>
-          </div>
-          <Link to="/add-item">
-            <button className="btn btn-primary">➕ Add New Item</button>
-          </Link>
+    <div className="dashboard">
+      <div className="dashboard-header">
+        <div>
+          <h1>📊 Dashboard</h1>
+          <p className="dashboard-subtitle">Overview of your food inventory</p>
         </div>
+        <Link to="/add-item">
+          <button className="btn btn-primary">➕ Add New Item</button>
+        </Link>
+      </div>
 
         {loading ? (
           <div className="loading">Loading...</div>
@@ -179,7 +176,6 @@ const Dashboard = () => {
             </div>
           </>
         )}
-      </main>
     </div>
   );
 };

@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { addFoodItem } from "../services/foodService";
-import Navbar from "../components/Navbar";
+import { getCategories } from "../services/categoryService";
 import "../styles/AddItem.css";
 
 const AddItem = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: "", text: "" });
+  const [categories, setCategories] = useState([]);
   
   const [formData, setFormData] = useState({
     name: "",
@@ -19,10 +20,32 @@ const AddItem = () => {
     storage_location: ""
   });
 
-  const categories = [
-    "Vegetables", "Fruits", "Dairy", "Meat", "Grains",
-    "Beverages", "Condiments", "Snacks", "Frozen", "Others"
-  ];
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
+  const fetchCategories = async () => {
+    try {
+      const data = await getCategories();
+      const categoryList = data.category || [];
+      const normalized = categoryList.map(c => c.name || c.category).filter(Boolean);
+      if (normalized.length === 0) {
+        setCategories([
+          "Vegetables", "Fruits", "Dairy", "Meat", "Grains",
+          "Beverages", "Condiments", "Snacks", "Frozen", "Others"
+        ]);
+        return;
+      }
+      setCategories(normalized);
+    } catch (error) {
+      console.error("Failed to load categories");
+      // Fallback categories
+      setCategories([
+        "Vegetables", "Fruits", "Dairy", "Meat", "Grains",
+        "Beverages", "Condiments", "Snacks", "Frozen", "Others"
+      ]);
+    }
+  };
 
   const units = ["kg", "g", "L", "ml", "pieces", "packets", "bottles", "boxes"];
 
@@ -93,26 +116,24 @@ const AddItem = () => {
   };
 
   return (
-    <div className="add-item-container">
-      <Navbar />
-      <main className="add-item-page">
-        <div className="add-item-header">
-          <h1>➕ Add New Food Item</h1>
-          <p className="add-item-subtitle">Add items to track and reduce waste</p>
-        </div>
+    <div className="add-item-page">
+      <div className="add-item-header">
+        <h1>➕ Add New Food Item</h1>
+        <p className="add-item-subtitle">Add items to track and reduce waste</p>
+      </div>
 
-        <div className="form-wrapper">
-          {message.text && (
-            <div className={`form-message message-${message.type}`}>
-              {message.text}
-            </div>
-          )}
+      <div className="form-wrapper">
+        {message.text && (
+          <div className={`form-message message-${message.type}`}>
+            {message.text}
+          </div>
+        )}
 
-          <form onSubmit={handleSubmit} className="add-item-form">
-            <div className="form-grid">
-              <div className="form-group">
-                <label className="form-label">
-                  Food Name <span className="required">*</span>
+        <form onSubmit={handleSubmit} className="add-item-form">
+          <div className="form-grid">
+            <div className="form-group">
+              <label className="form-label">
+                Food Name <span className="required">*</span>
                 </label>
                 <input
                   type="text"
@@ -244,7 +265,6 @@ const AddItem = () => {
             </ul>
           </div>
         </div>
-      </main>
     </div>
   );
 };

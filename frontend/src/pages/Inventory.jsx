@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getInventory, updateFoodStatus, deleteFoodItem } from "../services/foodService";
-import Navbar from "../components/Navbar";
 import "../styles/Inventory.css";
 
 const Inventory = () => {
@@ -123,17 +122,15 @@ const Inventory = () => {
   };
 
   return (
-    <div className="inventory-container">
-      <Navbar />
-      <main className="inventory-page">
-        <div className="inventory-header">
-          <h1>📋 Food Inventory</h1>
-          <p className="inventory-subtitle">Manage and track all your food items</p>
-        </div>
+    <div className="inventory-page">
+      <div className="inventory-header">
+        <h1>📋 Food Inventory</h1>
+        <p className="inventory-subtitle">Manage and track all your food items</p>
+      </div>
 
-        {/* Search and Filters */}
-        <div className="inventory-controls">
-          <div className="search-box">
+      {/* Search and Filters */}
+      <div className="inventory-controls">
+        <div className="search-box">
             <input
               type="text"
               className="search-input"
@@ -277,7 +274,6 @@ const Inventory = () => {
             </div>
           </div>
         )}
-      </main>
     </div>
   );
 };

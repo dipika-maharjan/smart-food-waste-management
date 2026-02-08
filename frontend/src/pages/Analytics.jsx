@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getAnalytics } from "../services/foodService";
-import Navbar from "../components/Navbar";
 import "../styles/Analytics.css";
 
 const Analytics = () => {
@@ -25,24 +24,18 @@ const Analytics = () => {
 
   if (loading) {
     return (
-      <div className="analytics-container">
-        <Navbar />
-        <main className="analytics-page">
-          <div className="loading">Loading analytics...</div>
-        </main>
+      <div className="analytics-page">
+        <div className="loading">Loading analytics...</div>
       </div>
     );
   }
 
   if (!analytics) {
     return (
-      <div className="analytics-container">
-        <Navbar />
-        <main className="analytics-page">
-          <div className="empty-state">
-            <p>Failed to load analytics data</p>
-          </div>
-        </main>
+      <div className="analytics-page">
+        <div className="empty-state">
+          <p>Failed to load analytics data</p>
+        </div>
       </div>
     );
   }
@@ -63,22 +56,20 @@ const Analytics = () => {
     : 0;
 
   return (
-    <div className="analytics-container">
-      <Navbar />
-      <main className="analytics-page">
-        <div className="analytics-header">
-          <h1>📈 Waste Analytics</h1>
-          <p className="analytics-subtitle">Track and analyze your food consumption patterns</p>
-        </div>
+    <div className="analytics-page">
+      <div className="analytics-header">
+        <h1>📈 Waste Analytics</h1>
+        <p className="analytics-subtitle">Track and analyze your food consumption patterns</p>
+      </div>
 
-        {/* Summary Cards */}
-        <div className="analytics-section">
-          <h2>Overview</h2>
-          <div className="summary-cards">
-            <div className="summary-card">
-              <div className="card-icon">📦</div>
-              <div className="card-content">
-                <h3>Total Items</h3>
+      {/* Summary Cards */}
+      <div className="analytics-section">
+        <h2>Overview</h2>
+        <div className="summary-cards">
+          <div className="summary-card">
+            <div className="card-icon">📦</div>
+            <div className="card-content">
+              <h3>Total Items</h3>
                 <p className="card-value">{summary.total_items}</p>
               </div>
             </div>
@@ -236,7 +227,6 @@ const Analytics = () => {
             )}
           </div>
         </div>
-      </main>
     </div>
   );
 };

@@ -956,11 +956,13 @@ def update_food_status_no_auth(id):
         }
     })
 
-# ------- Get Analytics (No Auth) -------
+# ------- Get Analytics (JWT) -------
 @app.route("/api/analytics", methods=["GET"])
-def get_analytics_no_auth():
+@jwt_required()
+def get_analytics():
+    user_id = get_jwt_identity()
     # Get all food items
-    all_items = Food.query.filter_by(user_id=DEFAULT_USER_ID).all()
+    all_items = Food.query.filter_by(user_id=user_id).all()
     
     # Count by status
     total_items = len(all_items)
@@ -999,7 +1001,7 @@ def get_analytics_no_auth():
             waste_by_reason[reason] = waste_by_reason.get(reason, 0) + 1
     
     # Get logs
-    logs = Userlog.query.filter_by(user_id=DEFAULT_USER_ID).all()
+    logs = Userlog.query.filter_by(user_id=user_id).all()
     
     return jsonify({
         "summary": {
