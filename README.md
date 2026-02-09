@@ -177,11 +177,12 @@ A comprehensive full-stack web application designed to track food inventory, mon
    pip install -r requirements.txt
    ```
 
-4. **Start the Flask server**:
+4. **Start the Flask server** (or use deployed version):
    ```bash
    python main.py
    ```
-   - Server will run on `http://127.0.0.1:5000`
+   - Local server runs on `http://127.0.0.1:5000`
+   - **Deployed version**: `https://smart-food-waste-management.up.railway.app/`
    - Default user (id=1) is created automatically on first run
    - SQLite database (`database.db`) is created automatically
 
@@ -270,7 +271,7 @@ Register/Login** - Create account or login with existing credentials
 | CORS errors | Flask-CORS installed and enabled in backend |
 | Port in use | Kill process or use different port |
 | DB locked | Close all connections or delete `database.db` |
-| API unreachable | Check service files point to `http://localhost:5000/api` |
+| API unreachable | Check backend is running or deployed URL is correct |
 | Analytics showing zeros | Restart backend after DB changes, add food items |
 | Protected routes redirect | Login required - normal behavior for auth systemation offer |
 | `GET` | `/api/donation-offers` | ✅ | Get all offers |

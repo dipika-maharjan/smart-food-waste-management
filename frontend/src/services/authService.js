@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/auth";
+const API_URL = "https://smart-food-waste-management.up.railway.app/api/auth";
 
 // Register a new user
 export const register = async (name, email, password, phone = "") => {

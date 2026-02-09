@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getToken } from "./authService";
 
-const API_URL = "http://localhost:5000/api/users";
+const API_URL = "https://smart-food-waste-management.up.railway.app/api/users";
 
 const getHeaders = () => ({
   headers: {
