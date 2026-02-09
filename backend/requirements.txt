@@ -5,3 +5,4 @@ Flask-CORS
 Werkzeug
 psycopg2-binary
 python-dotenv
+gunicorn==22.0.0
