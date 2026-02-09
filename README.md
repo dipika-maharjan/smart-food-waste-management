@@ -60,7 +60,7 @@ A comprehensive full-stack web application designed to track food inventory, mon
 *Items needing attention with urgency badges and quick actions*
 
 ### Donation Centers - Manage Centers
-![Donation Centers Screenshot](./frontend/src/assets/screenshots/donation-centers.JPG)
+![Donation Centers Screenshot](./frontend/src/assets/screenshots/donation-center.JPG)
 *Create and manage local donation centers with contact details*
 
 ### Donation Offers - Track Donations
