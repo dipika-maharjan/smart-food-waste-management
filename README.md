@@ -87,66 +87,57 @@ A comprehensive full-stack web application designed to track food inventory, mon
 - **Key Libraries**: Flask-JWT-Extended, Werkzeug, python-dotenv
 
 ### **Frontend**
-- **Framework**: React 18 with Vitewith routing & protected routes
-    │   ├── App.css                   # Root styling
-    │   ├── index.css                 # Global styles
-    │   ├── main.jsx                  # Entry point
-    │   ├── components/
-    │   │   ├── Navbar.jsx            # Navigation bar with auth state
-    │   │   └── ProtectedRoute.jsx    # Route protection wrapper
-    │   ├── pages/
-    │   │   ├── Login.jsx             # User login
-    │   │   ├── Register.jsx          # User registration
-    │   │   ├── Dashboard.jsx         # Home dashboard with stats
-    │   │   ├── AddItem.jsx           # Food item creation form
-    │   │   ├── Inventory.jsx         # Food inventory view with actions
-    │   │   ├── Alerts.jsx            # Expiry alerts for urgent items
-    │   │   ├── DonationCenters.jsx   # Donation center management
-    │   │   ├── DonationOffers.jsx    # Donation offer tracking
-    │   │   ├── Analytics.jsx         # Waste analytics and insights
-    │   │   └── UserProfile.jsx       # User profile management
-    │   ├── services/
-    │   │   ├── authService.js        # Authentication API
-    │   │   ├── userService.js        # User profile API
-    │   │   ├── categoryService.js    # Category API
-    │   │   ├── foodService.js        # Food inventory & analytics API
-    │   │   ├── alertService.js       # Expiry alerts API
-    │   │   ├── foodLogService.js     # Activity logging API
-    │   │   └── donationService.js    # Donation centers & offers API
-    │   └── styles/
-    │       ├── Auth.css
-    │       ├── Navbar.css
-    │       ├── Dashboard.css
-    │       ├── AddItem.css
-    │       ├── Inventory.css
-    │       ├── Alerts.css
-    │       ├── Donations.css
-    │       ├── Analytics.css
-    │       └── UserProfile             # Main app component with routing
-    │   ├── App.css                   # Root styling
-    │   ├── index.css                 # Global styles
-    │   ├── main.jsx                  # Entry point
-    │   ├── components/
-    │   │   └── Navbar.jsx            # Navigation bar
-    │   ├── pages/
-    │   │   ├── Dashboard.jsx         # Home dashboard with stats
-    │   │   ├── AddItem.jsx           # Food item creation form
-    │   │   ├── Inventory.jsx         # Food inventory view with actions
-    │   │   ├── Alerts.jsx            # Expiry alerts for urgent items
-    │   │   └── Analytics.jsx         # Waste analytics and insights
-    │   ├── services/
-    │   │   └── foodService.js        # API client service layer
-    │   └── styles/
-    │       ├── Navbar.css
-    │       ├── Dashboard.css
-    │       ├── AddItem.css
-    │       ├── Inventory.css
-    │       ├── Alerts.css
-    │       └── Analytics.css
-    ├── package.json
-    ├── vite.config.js
-    ├── index.html
-    └── .gitignore
+- **Framework**: React 18 with Vite
+- **Routing**: React Router v7
+- **HTTP Client**: Axios
+- **Key Libraries**: Protected routes, JWT authentication, responsive design
+
+**Directory Structure**:
+```
+frontend/
+├── public/                           # Static assets
+├── src/
+│   ├── App.jsx                       # Main app component with routing
+│   ├── main.jsx                      # Entry point
+│   ├── components/
+│   │   ├── Navbar.jsx                # Navigation bar with auth state
+│   │   └── ProtectedRoute.jsx        # Route protection wrapper
+│   ├── pages/
+│   │   ├── Login.jsx                 # User login
+│   │   ├── Register.jsx              # User registration
+│   │   ├── Dashboard.jsx             # Home dashboard with stats
+│   │   ├── AddItem.jsx               # Food item creation form
+│   │   ├── Inventory.jsx             # Food inventory view with actions
+│   │   ├── Alerts.jsx                # Expiry alerts for urgent items
+│   │   ├── DonationCenters.jsx       # Donation center management
+│   │   ├── DonationOffers.jsx        # Donation offer tracking
+│   │   ├── Analytics.jsx             # Waste analytics and insights
+│   │   └── UserProfile.jsx           # User profile management
+│   ├── services/
+│   │   ├── authService.js            # Authentication API calls
+│   │   ├── userService.js            # User profile API calls
+│   │   ├── categoryService.js        # Category API calls
+│   │   ├── foodService.js            # Food inventory & analytics API
+│   │   ├── alertService.js           # Expiry alerts API calls
+│   │   ├── foodLogService.js         # Activity logging API calls
+│   │   └── donationService.js        # Donation API calls
+│   ├── styles/
+│   │   ├── Auth.css
+│   │   ├── Navbar.css
+│   │   ├── Dashboard.css
+│   │   ├── AddItem.css
+│   │   ├── Inventory.css
+│   │   ├── Alerts.css
+│   │   ├── Analytics.css
+│   │   ├── Donations.css
+│   │   └── UserProfile.css
+│   ├── assets/
+│   │   └── screenshots/              # UI screenshots for documentation
+│   └── utils/                        # Utility functions
+├── index.html
+├── package.json
+├── vite.config.js
+└── .gitignore
 ```
 
 ## 🚀 Getting Started
@@ -216,7 +207,36 @@ python main.py
 
 **Terminal 2 - Frontend**:
 ```bash
-cd frontend (30+ endpoints)
+cd frontend
+npm install
+npm run dev
+```
+
+### **Environment Setup (Optional for local backend)**
+
+Create `.env` file in backend directory:
+```
+FLASK_ENV=development
+JWT_SECRET_KEY=your-secret-key-here
+DATABASE_URL=sqlite:///database.db
+```
+
+---
+
+## 🎯 Quick Usage
+
+1. **Register/Login** - Create account or login with existing credentials
+2. **Dashboard** - Get real-time overview with stats and alerts
+3. **Add Item** - Click "Add Item" → Fill form with category → Submit
+4. **Inventory** - Search, filter, and manage items with status updates
+5. **Alerts** - View items needing attention (expiring soon)
+6. **Donations** - Create donation centers and offers with food items
+7. **Analytics** - See waste insights and breakdowns by category/reason
+8. **Profile** - Manage account settings and personal information
+
+---
+
+## 📡 API Endpoints (30+ Total)
 
 ### Authentication
 | Method | Endpoint | Auth Required | Description |
@@ -230,17 +250,14 @@ cd frontend (30+ endpoints)
 | `GET` | `/api/users/me` | ✅ | Get current user profile |
 | `PUT` | `/api/users/me` | ✅ | Update user profile |
 | `DELETE` | `/api/users/me` | ✅ | Delete user account |
-Register/Login** - Create account or login with existing credentials
-2. **Dashboard** - Get real-time overview with stats and alerts
-3. **Add Item** - Click "Add Item" → Fill form with category → Submit
-4. **Inventory** - Search, filter, and manage items with status updates
-5. **Alerts** - View items needing attention (expiring soon)
-6. **Donations** - Create donation centers and offers with food items
-7. **Analytics** - See waste insights and breakdowns by category/reason
-8. **Profile** - Manage account settings and personal information
+
+### Food Items
+| Method | Endpoint | Auth Required | Description |
+|--------|----------|---------------|-------------|
+| `POST` | `/api/food` | ✅ | Add new food item |
 | `GET` | `/api/food` | ✅ | Get all food items with expiry info |
 | `PUT` | `/api/food/<id>` | ✅ | Update food item |
-| `PATCH` | `/api/food/<id>/status` | ✅ | Update food status |
+| `PATCH` | `/api/food/<id>/status` | ✅ | Update food status (USED/DONATED/WASTED) |
 | `DELETE` | `/api/food/<id>` | ✅ | Delete food item |
 | `GET` | `/api/food/alerts` | ✅ | Get expiry alerts |
 
@@ -254,7 +271,7 @@ Register/Login** - Create account or login with existing credentials
 ### Food Logs
 | Method | Endpoint | Auth Required | Description |
 |--------|----------|---------------|-------------|
-| `POST` | `/api/food-logs` | ✅ | Create food log |
+| `POST` | `/api/food-logs` | ✅ | Create food log (auto on status change) |
 | `GET` | `/api/food-logs` | ✅ | Get all logs |
 | `GET` | `/api/food-logs/<id>` | ✅ | Get log by ID |
 | `DELETE` | `/api/food-logs/<id>` | ✅ | Delete log |
@@ -267,13 +284,11 @@ Register/Login** - Create account or login with existing credentials
 | `GET` | `/api/donation-centers/<id>` | ❌ | Get center by ID |
 | `PUT` | `/api/donation-centers/<id>` | ✅ | Update center |
 | `DELETE` | `/api/donation-centers/<id>` | ✅ | Delete center |
-401 Unauthorized | Ensure you're logged in and JWT token is valid |
-| CORS errors | Flask-CORS installed and enabled in backend |
-| Port in use | Kill process or use different port |
-| DB locked | Close all connections or delete `database.db` |
-| API unreachable | Check backend is running or deployed URL is correct |
-| Analytics showing zeros | Restart backend after DB changes, add food items |
-| Protected routes redirect | Login required - normal behavior for auth systemation offer |
+
+### Donation Offers
+| Method | Endpoint | Auth Required | Description |
+|--------|----------|---------------|-------------|
+| `POST` | `/api/donation-offers` | ✅ | Create donation offer |
 | `GET` | `/api/donation-offers` | ✅ | Get all offers |
 | `GET` | `/api/donation-offers/<id>` | ✅ | Get offer by ID |
 | `PATCH` | `/api/donation-offers/<id>/status` | ✅ | Update offer status |
@@ -282,32 +297,61 @@ Register/Login** - Create account or login with existing credentials
 ### Analytics
 | Method | Endpoint | Auth Required | Description |
 |--------|----------|---------------|-------------|
-| `GET` | `/api/analytics` | ✅ | Get waste analytics by user
+| `GET` | `/api/analytics` | ✅ | Get waste analytics by user |
+
+
 ## 🔄 Core System Loop
 
 Food Comes In → Food Is Tracked → User Updates Status → Logs Are Created → Analytics Show Insights
 
 ---
 
-## 📡 API Endpoints
+## ✅ Feature Verification Checklist
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `POST` | `/api/foods` | Add new food item |
-| `GET` | `/api/foods` | Get all food items with expiry info |
-| `POST` | `/api/foods/<id>/status` | Update food status |
-| `GET` | `/api/analytics` | Get waste analytics |
-| `DELETE` | `/api/foods/<id>` | Delete food item |
+All 30+ API endpoints and features have been implemented and tested:
 
----
+**Authentication**
+- ✅ User registration with email validation
+- ✅ Secure login with JWT tokens
+- ✅ Protected routes (redirect to login if not authenticated)
+- ✅ Token stored in localStorage
 
-## 🎯 Quick Usage
+**Food Management**
+- ✅ Add food items with category, quantity, expiry date
+- ✅ View inventory with search and filter
+- ✅ Update food items
+- ✅ Delete food items
+- ✅ Track food status (AVAILABLE → USED/DONATED/WASTED)
 
-1. **Add Item** - Click "Add Item" → Fill form → Submit
-2. **Inventory** - Search, filter, and manage items with action buttons
-3. **Alerts** - View items needing attention (expiring soon)
-4. **Analytics** - See waste insights and breakdowns
-5. **Dashboard** - Get real-time overview with stats
+**Smart Alerts**
+- ✅ Automatic expiry state calculation (FRESH/NEAR_EXPIRY/EXPIRED)
+- ✅ Real-time alert notifications
+- ✅ Alert sorting by urgency
+- ✅ Quick action buttons from alerts
+
+**Donations**
+- ✅ Create donation centers with details
+- ✅ View all donation centers
+- ✅ Create donation offers with multiple items
+- ✅ Track donation status
+- ✅ Update and delete donations
+
+**Analytics & Reporting**
+- ✅ User-specific waste analytics
+- ✅ Breakdown by category
+- ✅ Breakdown by waste reason
+- ✅ Real-time statistics on dashboard
+- ✅ Actionable recommendations
+
+**User Profile**
+- ✅ View user information
+- ✅ Update profile details
+- ✅ Manage account settings
+
+**Activity Logging**
+- ✅ Automatic log creation on status changes
+- ✅ View activity history
+- ✅ Timestamp tracking
 
 ---
 
@@ -323,12 +367,54 @@ Food Comes In → Food Is Tracked → User Updates Status → Logs Are Created �
 
 ## 🐛 Troubleshooting
 
-| Issue | Fix |
-|-------|-----|
-| Backend 401 error | Old JWT routes commented out |
-| CORS errors | Flask-CORS installed and enabled |
+| Issue | Solution |
+|-------|----------|
+| 401 Unauthorized | Ensure you're logged in and JWT token is valid |
+| CORS errors | Flask-CORS installed and enabled in backend |
 | Port in use | Kill process or use different port |
 | DB locked | Delete `database.db` and restart |
-| API unreachable | Check `foodService.js` API_URL |
+| API unreachable | Check backend is running or deployed URL is correct |
+| Analytics showing zeros | Restart backend after DB changes, add food items |
+| Protected routes redirect | Login required - normal behavior for auth system |
+
+---
+
+## 🌐 Deployed Links
+
+- **Frontend (Vercel)**: https://smart-food-waste-management-git-main-dipika-maharjans-projects.vercel.app/
+- **Backend (Railway)**: https://smart-food-waste-management.up.railway.app/
+
+### **Deployment Architecture**
+
+**Backend - Railway**
+- Automatically deploys on git push to main branch
+- Environment variables configured in Railway dashboard
+- SQLite database persisted in Railway instance
+- Accessible via HTTPS at https://smart-food-waste-management.up.railway.app/
+
+**Frontend - Vercel**
+- Automatically deploys on git push to main branch
+- Root directory set to `frontend` in Vercel project settings
+- Build command: `npm run build`
+- All API calls routed to Railway backend (https URLs)
+
+**API Integration**
+- All 7 frontend services configured to use deployed Railway backend
+- JWT tokens stored in browser localStorage
+- CORS enabled on backend for Vercel domain
+
+---
+
+## 📝 License
+
+This project is open source and available under the MIT License.
+
+---
+
+## 👥 Contributors
+
+Built as a collaborative project to reduce food waste and create a sustainable future.
+
+
 
 
